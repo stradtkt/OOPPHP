@@ -56,4 +56,8 @@ class ListingPremium extends ListingBasic
             $this->setDescription($data['description']);
         }
     }
+    public static function displayAllowedTags()
+    {
+        return self::$allowed_tags;
+    }
 }
