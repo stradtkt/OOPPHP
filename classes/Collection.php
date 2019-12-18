@@ -2,7 +2,7 @@
 
 class Collection
 {
-    private $statuses = ['basic', 'inactive'];
+    private $statuses = ['premium', 'basic', 'inactive'];
     private $db;
     // array of listing objects
     public $listings = [];

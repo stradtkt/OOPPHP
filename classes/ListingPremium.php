@@ -2,9 +2,9 @@
 
 class ListingPremium extends ListingBasic
 {
-    private $status = 'premium';
-    private $description;
-    protected $allowed_tags = '<p><br><b><strong><em><u><ol><ul><li>';
+    protected $status = 'premium';
+    protected $description;
+    protected static $allowed_tags = '<p><br><b><strong><em><u><ol><ul><li>';
 
     public function getDescription()
     {
@@ -31,5 +31,29 @@ class ListingPremium extends ListingBasic
             return;
         }
         $this->status = trim(filter_var($value, FILTER_SANITIZE_STRING));
+    }
+        /**
+     * Calls individual methods to set values for object properties.
+     * @param array $data Data to set from user or database
+     */
+    public function setValues($data = []) {
+        if (isset($data['id'])) {
+            $this->setId($data['id']);
+        }
+        if (isset($data['title'])) {
+            $this->setTitle($data['title']);
+        }
+        if (isset($data['website'])) {
+            $this->setWebsite($data['website']);
+        }
+        if (isset($data['email'])) {
+            $this->setEmail($data['email']);
+        }
+        if (isset($data['twitter'])) {
+            $this->setTwitter($data['twitter']);
+        }
+        if (isset($data['description'])) {
+            $this->setDescription($data['description']);
+        }
     }
 }
