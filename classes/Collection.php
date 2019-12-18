@@ -60,8 +60,12 @@ class Collection
      */
     public function addListing($data = null)
     {
-        $listing = new ListingPremium($data);
-        $this->listings[] = $listing;
+        if(isset($data['status']) && $data['status'] == 'premium') {
+            $listing = new ListingPremium($data);
+        } else {
+            $listing = new ListingBasic($data);
+        }
+            $this->listings[] = $listing;
         return $listing;
     }
 
